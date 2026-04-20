@@ -1,0 +1,66 @@
+﻿@using SportOutlet.Data.Models
+@model IEnumerable<Product>
+
+<div class="container-fluid mt-4">
+    <div class="row">
+
+        <!-- LEFT FILTER -->
+        <div class="col-md-3">
+            <h3>@ViewBag.SubCategory</h3>
+
+            <ul class="list-unstyled mt-3">
+                <li>Всички (@Model.Count())</li>
+            </ul>
+
+            <hr />
+
+            <div class="filter-item">Марка <span>+</span></div>
+            <div class="filter-item">Пол <span>+</span></div>
+            <div class="filter-item">Размер <span>+</span></div>
+            <div class="filter-item">Цена <span>+</span></div>
+        </div>
+
+        <!-- PRODUCTS -->
+        <div class="col-md-9">
+
+            <div class="d-flex justify-content-between mb-3">
+                <h5>@Model.Count() Продукти</h5>
+
+                <select class="form-select w-auto">
+                    <option>Препоръчваме ви</option>
+                </select>
+            </div>
+
+            <div class="row">
+
+                @foreach (var product in Model)
+                {
+                    <div class="col-md-3 mb-4">
+                        <div class="card product-card">
+
+                            <div class="discount-badge">-20%</div>
+
+                            <img src="@product.ProductImages.FirstOrDefault()?.ImageUrl"
+                                 class="product-img" />
+
+                            <div class="card-body">
+
+                                <small>@product.Brand.Name</small>
+
+                                <h6 class="fw-bold">@product.Name</h6>
+
+                                <p class="text-muted">@product.SubCategory.Name</p>
+
+                                <p class="fw-bold">@product.Price лв</p>
+
+                            </div>
+
+                        </div>
+                    </div>
+                }
+
+            </div>
+        </div>
+
+    </div>
+</div>
