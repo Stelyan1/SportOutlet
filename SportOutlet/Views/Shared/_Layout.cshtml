@@ -1,0 +1,174 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - SportOutlet</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/SportOutlet.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        @* <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">SportOutlet</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav> *@
+        <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom px-4">
+            <a class="navbar-brand" href="#">
+                <img src="https://img.pikbest.com/png-images/20241022/stealth-masked-hacker-gaming-logo-for-gamers_10991543.png!w700wp" width="120px" height="120px" alt="Alternate Text" />
+                <strong>LOGO</strong>
+            </a>
+
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-4">
+
+                    <!-- МЪЖЕ -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Мъже</a>
+
+                        <div class="dropdown-menu mega-menu p-4">
+
+                            <div class="row">
+
+                                @foreach (var category in ViewBag.Categories)
+                                {
+                                    <div class="col-md-3">
+
+                                        <h6 class="fw-bold">@category.Name</h6>
+
+                                        <ul class="list-unstyled">
+                                            @foreach (var sub in category.SubCategories)
+                                            {
+                                                <li>
+                                                    <a href="#">@sub.Name</a>
+                                                </li>
+                                            }
+                                        </ul>
+
+                                    </div>
+                                }
+
+                                <!-- BRANDS -->
+                                <div class="col-md-3">
+                                    <h6 class="fw-bold">Брандове</h6>
+
+                                    <ul class="list-unstyled">
+                                        @foreach (var brand in ViewBag.Brands)
+                                        {
+                                            <li>
+                                                <a href="#">@brand.Name</a>
+                                            </li>
+                                        }
+                                    </ul>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </li>
+
+                    <!-- ЖЕНИ -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Жени</a>
+
+                        <div class="dropdown-menu mega-menu p-4">
+                            <div class="row">
+
+                                @foreach (var category in ViewBag.Categories)
+                                {
+                                    <div class="col-md-3">
+                                        <h6>@category.Name</h6>
+
+                                        <ul class="list-unstyled">
+                                            @foreach (var sub in category.SubCategories)
+                                            {
+                                                <li><a href="#">@sub.Name</a></li>
+                                            }
+                                        </ul>
+                                    </div>
+                                }
+
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- ДЕЦА -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Деца</a>
+
+                        <div class="dropdown-menu mega-menu p-4">
+                            <div class="row">
+
+                                @foreach (var category in ViewBag.Categories)
+                                {
+                                    <div class="col-md-3">
+                                        <h6>@category.Name</h6>
+
+                                        <ul class="list-unstyled">
+                                            @foreach (var sub in category.SubCategories)
+                                            {
+                                                <li><a href="#">@sub.Name</a></li>
+                                            }
+                                        </ul>
+                                    </div>
+                                }
+
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- БРАНДОВЕ -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Брандове</a>
+
+                        <div class="dropdown-menu mega-menu p-4">
+                            <ul class="list-unstyled">
+                                @foreach (var brand in ViewBag.Brands)
+                                {
+                                    <li><a href="#">@brand.Name</a></li>
+                                }
+                            </ul>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+
+            <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Търсене в уебсайта">
+            </form>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2026 - SportOutlet - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

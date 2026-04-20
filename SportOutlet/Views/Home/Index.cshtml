@@ -1,0 +1,76 @@
+﻿@using SportOutlet.Data.Models
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model IEnumerable<Product>
+
+<div class="container-fluid mt-4">
+    <div class="row">
+
+        <!-- LEFT FILTER -->
+        <div class="col-md-3">
+            <h3>Продукти</h3>
+
+            <ul class="list-unstyled mt-4">
+                <li>Всички обувки (@Model.Count(p => p.SubCategory.Name.Contains("Shoes")))</li>
+                <li>Дрехи (@Model.Count(p => p.SubCategory.Name.Contains("T")))</li>
+                <li>Екипировка (@Model.Count(p => p.SubCategory.Name.Contains("Bags")))</li>
+            </ul>
+
+            <hr />
+
+            <div class="filter-item">Марка <span>+</span></div>
+            <div class="filter-item">Пол <span>+</span></div>
+            <div class="filter-item">Размер <span>+</span></div>
+            <div class="filter-item">Цена <span>+</span></div>
+        </div>
+
+        <!-- PRODUCTS -->
+        <div class="col-md-9">
+
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h4>@Model.Count() Продукти</h4>
+
+                <select class="form-select w-auto">
+                    <option>Препоръчваме ви</option>
+                    <option>Цена ↑</option>
+                    <option>Цена ↓</option>
+                </select>
+            </div>
+
+            <div class="row">
+
+                @foreach (var product in Model)
+                {
+                    <div class="col-md-3 mb-4">
+                        <div class="card product-card">
+
+                            <div class="discount-badge">20% ОТСТЪПКА</div>
+
+                            <img src="@product.ProductImages.FirstOrDefault()?.ImageUrl"
+                                 class="card-img-top product-img" />
+
+                            <div class="card-body">
+                                <small class="text-muted">@product.Brand.Name</small>
+
+                                <h6 class="fw-bold">@product.Name</h6>
+
+                                <p class="mb-1 text-muted">
+                                    @product.SubCategory.Name
+                                </p>
+
+                                <p class="fw-bold">
+                                    @product.Price лв
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                }
+
+            </div>
+        </div>
+
+    </div>
+</div>

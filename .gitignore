@@ -1,0 +1,12 @@
+# Visual Studio temporary files
+bin/
+obj/
+.vs/
+*.user
+*.suo
+*.log
+node_modules/
+.azure/
+
+appsettings.Development.json
+/GrandLineAuto/appsettings.Development.json
