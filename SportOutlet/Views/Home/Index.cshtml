@@ -48,8 +48,10 @@
 
                             <div class="discount-badge">20% ОТСТЪПКА</div>
 
-                            <img src="@product.ProductImages.FirstOrDefault()?.ImageUrl"
-                                 class="card-img-top product-img" />
+                            <a href="/Products/Details/@product.Id">
+                                <img src="@product.ProductImages.FirstOrDefault()?.ImageUrl"
+                                     class="product-img" />
+                            </a>
 
                             <div class="card-body">
                                 <small class="text-muted">@product.Brand.Name</small>

@@ -36,12 +36,14 @@
                 @foreach (var product in Model)
                 {
                     <div class="col-md-3 mb-4">
+
+                        <a href="/Products/Details/@product.Id">
+                            <img src="@product.ProductImages.FirstOrDefault()?.ImageUrl"
+                                 class="product-img" />
+                        </a>
                         <div class="card product-card">
 
                             <div class="discount-badge">-20%</div>
-
-                            <img src="@product.ProductImages.FirstOrDefault()?.ImageUrl"
-                                 class="product-img" />
 
                             <div class="card-body">
 

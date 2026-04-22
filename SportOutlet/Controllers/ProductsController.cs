@@ -30,7 +30,19 @@ namespace SportOutlet.Controllers
 
             if (gender.HasValue) 
             {
-                query = query.Where(p => p.Gender == gender);
+                if (gender == Gender.Man)
+                {
+                    query = query.Where(p => p.Gender == Gender.Man || p.Gender == Gender.Unisex);
+                }
+                else if (gender == Gender.Woman)
+                {
+                    query = query.Where(p => p.Gender == Gender.Woman || p.Gender == Gender.Unisex);
+                }
+                else
+                {
+                    query = query.Where(p => p.Gender == gender);
+                }
+
             }
 
             var products = await query.ToListAsync();
@@ -39,11 +51,52 @@ namespace SportOutlet.Controllers
                 .Include(p => p.SubCategories)
                 .ToList();
 
-            ViewBag.Brands = _dbContext.Brands.ToList();
+            ViewBag.Brands = await _dbContext.Brands.ToListAsync();
 
             ViewBag.SubCategory = products.FirstOrDefault()?.SubCategory?.Name ?? "Products";
 
             return View(products);
+        }
+
+        public async Task<IActionResult> Details (Guid Id)
+        {
+            var product = await _dbContext.Products
+                .Include(p => p.ProductVariants)
+                .Include(p => p.ProductSpecifications)
+                .Include(p => p.ProductImages)
+                .Include(p => p.Brand)
+                .Include(p => p.SubCategory)
+                .FirstOrDefaultAsync(p => p.Id == Id);
+
+            if (product == null) 
+            {
+                return NotFound();
+            }
+
+            var outfit = await _dbContext.Products
+                .Include(p => p.SubCategory)
+                .Include(p => p.Brand)
+                .Include(p => p.ProductImages)
+                .Where(p => p.SubCategory.Id == product.SubCategory.Id && p.Gender == product.Gender && p.Id != product.Id)
+                .Where(p => p.Brand.Id == product.Brand.Id)
+                .OrderBy(random => Guid.NewGuid())
+                .Take(3)
+                .ToListAsync();
+
+            var similarProducts = await _dbContext.Products
+                .Include(p => p.SubCategory)
+                .Include(p => p.ProductImages)
+                .Where(p => p.SubCategory.Id == product.SubCategory.Id && p.Id != product.Id)
+                .Where(p => p.Gender == product.Gender || p.Gender == Gender.Unisex)
+                .OrderBy(random => Guid.NewGuid())
+                .Take(3)
+                .ToListAsync();
+
+            ViewBag.Outfits = outfit;
+
+            ViewBag.SimilarProducts = similarProducts;
+
+            return View(product);
         }
     }
 }
