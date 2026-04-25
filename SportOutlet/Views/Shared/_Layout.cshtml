@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using SportOutlet.Data.Models
+@using SportOutlet.Data.Models.Enums
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -12,8 +14,8 @@
     <header>
 
         @{
-            var categories = ViewBag.Categories as IEnumerable<dynamic>;
-            var brands = ViewBag.Brands as IEnumerable<dynamic>;
+            var categories = ViewBag.Categories as IEnumerable<Category>;
+            var brands = ViewBag.Brands as IEnumerable<Brand>;
         }
 
         <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom px-4">
@@ -40,12 +42,18 @@
                                     {
                                         <div class="col-md-3 text-center">
 
-                                            <img src="@category.ImageUrl" class="category-img mb-2" />
+                                            @{
+                                                var gender = Gender.Man;
+                                                var image = category.CategoryImages
+                                                .FirstOrDefault(ci => ci.Gender == gender);
+                                            }
+
+                                            <img src="@image?.ImageUrl" class="category-img mb-2" />
 
                                             <h6 class="fw-bold">@category.Name</h6>
 
                                             <ul class="list-unstyled">
-                                                @foreach (var sub in category.SubCategories ?? new List<dynamic>())
+                                                @foreach (var sub in category.SubCategories ?? new List<SubCategory>())
                                                 {
                                                     <li>
                                                         <a href="/Products?subCategoryId=@sub.Id&gender=0&">@sub.Name</a>
@@ -91,12 +99,19 @@
                                     {
                                         <div class="col-md-3 text-center">
 
-                                            <img src="@category.ImageUrl" class="category-img mb-2" />
+                                            @{
+                                                var gender = Gender.Woman;
+                                                var image = category.CategoryImages
+                                                .FirstOrDefault(ci => ci.Gender == gender);
+                                            }
+
+                                            <img src="@image?.ImageUrl" class="category-img mb-2" />
+                                           
 
                                             <h6>@category.Name</h6>
 
                                             <ul class="list-unstyled">
-                                                @foreach (var sub in category.SubCategories ?? new List<dynamic>())
+                                                @foreach (var sub in category.SubCategories ?? new List<SubCategory>())
                                                 {
                                                     <li>
                                                         <a href="/Products?subCategoryId=@sub.Id&gender=1">@sub.Name</a>
@@ -142,12 +157,18 @@
                                     {
                                         <div class="col-md-3 text-center">
 
-                                            <img src="@category.ImageUrl" class="category-img mb-2" />
+                                            @{
+                                                var gender = Gender.Kids;
+                                                var image = category.CategoryImages
+                                                .FirstOrDefault(ci => ci.Gender == gender);
+                                            }
+
+                                            <img src="@image?.ImageUrl" class="category-img mb-2" />
 
                                             <h6>@category.Name</h6>
 
                                             <ul class="list-unstyled">
-                                                @foreach (var sub in category.SubCategories ?? new List<dynamic>())
+                                                @foreach (var sub in category.SubCategories ?? new List<SubCategory>())
                                                 {
                                                     <li>
                                                         <a href="/Products?subCategoryId=@sub.Id&gender=3">@sub.Name</a>

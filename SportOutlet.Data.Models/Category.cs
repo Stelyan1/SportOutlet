@@ -20,5 +20,8 @@ namespace SportOutlet.Data.Models
 
         [Comment("Collection of SubCategories")]
         public ICollection<SubCategory> SubCategories { get; set; } = new HashSet<SubCategory>();
+
+        [Comment("Collection of images")]
+        public ICollection<CategoryImage> CategoryImages { get; set; } = new HashSet<CategoryImage>();
     }
 }

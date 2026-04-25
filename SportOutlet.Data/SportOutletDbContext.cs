@@ -18,6 +18,7 @@ namespace SportOutlet.Data
         public virtual DbSet<ProductVariant> ProductVariants { get; set; } = null!;
         public virtual DbSet<ProductImage> ProductImages { get; set; } = null!;
         public virtual DbSet<ProductSpecification> ProductSpecifications { get; set; } = null!;
+        public virtual DbSet<CategoryImage> CategoryImages { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -30,6 +30,7 @@ namespace SportOutlet.Controllers
 
             var categories = await _dbContext.Categories
                 .Include(c => c.SubCategories)
+                .Include(c => c.CategoryImages)
                 .ToListAsync();
 
             var brands = await _dbContext.Brands.ToListAsync();
