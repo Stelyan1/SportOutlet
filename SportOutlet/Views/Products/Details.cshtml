@@ -1,5 +1,6 @@
 ﻿@using SportOutlet.Data.Models
 @model Product
+@using System.Linq
 
 <div class="container mt-4">
 
@@ -61,12 +62,14 @@
         <div class="row">
             @foreach (var item in ViewBag.Outfits)
             {
+                var productItem = item as Product;
+
                 <div class="col-md-3 mb-4">
-                    <a href="/Products/Details/@item.Id">
-                        <img src="@item.ProductImages.FirstOrDefault()?.ImageUrl"
+                    <a href="/Products/Details/@productItem.Id">
+                        <img src="@productItem.ProductImages.FirstOrDefault()?.ImageUrl"
                              class="img-fluid product-card-img" />
                     </a>
-                    <p class="mt-2">@item.Name</p>
+                    <p class="mt-2">@productItem.Name</p>
                 </div>
             }
         </div>
@@ -79,12 +82,14 @@
         <div class="row">
             @foreach (var item in ViewBag.SimilarProducts)
             {
+                var productItem = item as Product;
+
                 <div class="col-md-3 mb-4">
-                    <a href="/Products/Details/@item.Id">
-                        <img src="@item.ProductImages.FirstOrDefault()?.ImageUrl"
+                    <a href="/Products/Details/@productItem.Id">
+                        <img src="@productItem.ProductImages.FirstOrDefault()?.ImageUrl"
                              class="img-fluid product-card-img" />
                     </a>
-                    <p class="mt-2">@item.Name</p>
+                    <p class="mt-2">@productItem.Name</p>
                 </div>
             }
         </div>

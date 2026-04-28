@@ -96,6 +96,30 @@ namespace SportOutlet.Data.Configuration
                     Description = "When cold, wet weather won't stop your workout, this Under Armour Unstoppable Men's Jacket is the choice for you. Ultra-light and stretchy, it repels rain, keeps you warm (but not too hot), and moves with you through every workout.\r\n\r\n\r\nDetails:\r\nStretchy woven fabric is strong yet lightweight for durability and comfort\r\n4-way stretch material moves better in every direction for unrestricted movement\r\nWater-repellent coating helps you stay dry in wet conditions\r\nSecure zippered hand pockets keep your essentials safe. Bungee cord hem adjusts for a secure, personalized fit.",
                     Gender= Gender.Woman,
                     IsActive = true    
+                },
+
+                new Product()
+                {
+                    Id = Guid.Parse("f4a8c2d1-9b37-4e6f-a5c2-8d1e7b3f9a62"),
+                    Name = "Under Armour Launch 7'' 2-in-1",   //Man Shorts Match Under Armour T-Shirt
+                    BrandId = new Guid("8a1d4f72-2c6b-4e90-b3f7-1d5c9a8e4b21"),
+                    SubCategoryId = new Guid("a9e3b7d2-1c5f-4b8a-9d6e-2f7c1a3b8e55"),
+                    Price = new Decimal(49.99),
+                    Description = "Stay light, supported and ready to move with the Under Armour Launch 7'' 2-in-1 Men's Running Shorts, designed to provide comfort, breathability and high performance on every run.\r\n\r\n\r\nDetails\r\nLightweight woven outer shorts provide comfort and durability\r\nBuilt-in knit compression shorts give extra coverage and support\r\nSweat-wicking fabric dries quickly to keep you dry and comfortable\r\nHighly breathable mesh panels enhance ventilation\r\nSoft knit waistband with internal drawcord provides a secure and comfortable fit\r\nOpen hand pockets include an internal phone pocket on the right\r\n\r\nEco story\r\nThe main fabric contains at least 90% recycled polyester, excluding finishing and decorative elements, to reduce waste and carbon emissions.",
+                    Gender = Gender.Man,
+                    IsActive = true
+                },
+
+                new Product()
+                {
+                    Id = Guid.Parse("0c9e7a1d-3b5f-4a82-b6c1-2d7f8e3a9b73"),
+                    Name = "Nike Sportswear Jordan", //Nike Similar Shorts to Under Armour Shorts
+                    BrandId = new Guid("c3f9a2e1-7b4d-4c9a-9f2e-6a8d1b3c5e7f"),
+                    SubCategoryId =new Guid("a9e3b7d2-1c5f-4b8a-9d6e-2f7c1a3b8e55"),
+                    Price = new Decimal(39.99),
+                    Description = "These Jordan Sport Essentials Men's Woven Shorts with Dri-FIT are called Essentials for a reason. They're made with a four-way stretch woven fabric and sweat-wicking technology to help keep you comfortable on and off the court.\r\n\r\n\r\nDetails\r\nNike Dri-FIT technology wicks sweat away from the skin for faster evaporation, helping you stay dry and comfortable\r\nSide pockets for storing your small items\r\nMain: 88% polyester/12% elastane. Mesh: 100% polyester\r\nMachine wash\r\n\r\nEco story This product is made with recycled materials",
+                    Gender = Gender.Man,
+                    IsActive = true
                 }
             };
             return products;

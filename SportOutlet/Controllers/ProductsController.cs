@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SportOutlet.Data;
+using SportOutlet.Data.Models;
 using SportOutlet.Data.Models.Enums;
 
 namespace SportOutlet.Controllers
@@ -73,16 +74,52 @@ namespace SportOutlet.Controllers
                 return NotFound();
             }
 
-            var outfit = await _dbContext.Products
-                .Include(p => p.SubCategory)
-                .Include(p => p.Brand)
-                .Include(p => p.ProductImages)
-                .Where(p => p.SubCategory.Id == product.SubCategory.Id && p.Gender == product.Gender && p.Id != product.Id)
-                .Where(p => p.Brand.Id == product.Brand.Id)
-                .OrderBy(random => Guid.NewGuid())
-                .Take(3)
-                .ToListAsync();
+            string? targetedClotheToCombine = null;
 
+            if (product.SubCategory.Name == "T-Shirts")
+            {
+                targetedClotheToCombine = "Shorts";
+            }
+            else if (product.SubCategory.Name == "Sweatshirt")
+            {
+                targetedClotheToCombine = "Pants";
+            }
+            else if (product.SubCategory.Name == "Shorts")
+            {
+                targetedClotheToCombine = "T-Shirts";
+            }
+            else if (product.SubCategory.Name == "Pants")
+            {
+                targetedClotheToCombine = "Sweatshirt";
+            }
+
+            List<Product> outfit = new();
+
+            if (targetedClotheToCombine != null) 
+            {
+                outfit = await _dbContext.Products
+                   .Include(p => p.SubCategory)
+                   .Include(p => p.Brand)
+                   .Include(p => p.ProductImages)
+                   .Where(p => p.SubCategory.Name == targetedClotheToCombine && p.Gender == product.Gender && p.Id != product.Id)
+                   .Where(p => p.Brand.Id == product.Brand.Id)
+                   .OrderBy(random => Guid.NewGuid())
+                   .Take(3)
+                   .ToListAsync();
+            }
+            else
+            {
+                outfit = await _dbContext.Products
+                        .Include(p => p.SubCategory)
+                        .Include(p => p.Brand)
+                        .Include(p => p.ProductImages)
+                        .Where(p => p.SubCategory.Name == product.SubCategory.Name && p.Gender == product.Gender && p.Id != product.Id)
+                        .Where(p => p.Brand.Id == product.Brand.Id)
+                        .OrderBy(random => Guid.NewGuid())
+                        .Take(3)
+                        .ToListAsync();
+            }
+                
             var similarProducts = await _dbContext.Products
                 .Include(p => p.SubCategory)
                 .Include(p => p.ProductImages)

@@ -78,6 +78,24 @@ namespace SportOutlet.Data.Configuration
                   Key = "Color",
                   Value = "Pink",
                   ProductId = new Guid("1e9b3c7d-4a2f-4d86-b5c1-8a7e2d6f9c54")
+              },
+
+              //Under Armour Launch Matching Shorts
+              new ProductSpecification()
+              {
+                  Id = Guid.Parse("6f1a9c3e-2b74-4d8a-9c5e-1e7a3f8b6c92"),
+                  Key = "Color",
+                  Value = "Black",
+                  ProductId = new Guid("f4a8c2d1-9b37-4e6f-a5c2-8d1e7b3f9a62")
+              },
+
+              //Nike Sportswear Jordan 
+              new ProductSpecification()
+              {
+                  Id = Guid.Parse("d3b7e2a1-9c54-4f6a-8d1c-2a7f9e3b6c81"),
+                  Key = "Color",
+                  Value = "Black",
+                  ProductId = new Guid("0c9e7a1d-3b5f-4a82-b6c1-2d7f8e3a9b73")
               }
             };
 

@@ -165,7 +165,51 @@ namespace SportOutlet.Data.Configuration
                     ImageUrl = "https://www.sportvision.bg/files/thumbs/files/images/slike_proizvoda/media/137/1374889-696/images/thumbs_600/1374889-696_3_600_600px.jpg",
                     Order = 16,
                     ProductId = new Guid("1e9b3c7d-4a2f-4d86-b5c1-8a7e2d6f9c54")
-                } //End of Sweatshirt Under Armour Unstoppable
+                }, //End of Sweatshirt Under Armour Unstoppable
+
+
+                //Start of Under Armour Matching Shorts
+                new ProductImage()
+                {
+                    Id = Guid.Parse("3a9f7c2e-6d14-4b8a-9c5e-1f2d7a8b6c91"),
+                    ImageUrl = "https://www.sportvision.bg/files/thumbs/files/images/slike_proizvoda/media/138/1382641-001/images/thumbs_600/1382641-001_600_600px.jpg",
+                    Order = 17,
+                    ProductId = new Guid("f4a8c2d1-9b37-4e6f-a5c2-8d1e7b3f9a62")
+                },
+
+                new ProductImage()
+                {
+                    Id = Guid.Parse("b5e1a9d3-2c74-4f6b-8a3d-9e7c1f2a6b04"),
+                    ImageUrl = "https://www.sportvision.bg/files/thumbs/files/images/slike_proizvoda/media/138/1382641-001/images/thumbs_600/1382641-001_1_600_600px.jpg",
+                    Order = 18,
+                    ProductId = new Guid("f4a8c2d1-9b37-4e6f-a5c2-8d1e7b3f9a62")
+                },
+
+                new ProductImage()
+                {
+                    Id = Guid.Parse("7c2d8a1e-5f93-4a6b-b9c1-3e7f2a4d8c56"),
+                    ImageUrl = "https://www.sportvision.bg/files/thumbs/files/images/slike_proizvoda/media/138/1382641-001/images/thumbs_600/1382641-001_2_600_600px.jpg",
+                    Order = 19,
+                    ProductId = new Guid("f4a8c2d1-9b37-4e6f-a5c2-8d1e7b3f9a62")
+                }, //End of Under Armour Matching Shorts
+
+
+                //Start of Nike Sport Essentials Jordan
+                new ProductImage()
+                {
+                    Id = Guid.Parse("c9e4a7d2-1b83-4f6a-9c5d-2e7a1f8b3d64"),
+                    ImageUrl = "https://www.sportvision.bg/files/thumbs/files/images/slike_proizvoda/media/IF2/IF2160-010/images/thumbs_600/IF2160-010_600_600px.jpg",
+                    Order = 20,
+                    ProductId = new Guid("0c9e7a1d-3b5f-4a82-b6c1-2d7f8e3a9b73")
+                },
+
+                new ProductImage()
+                {
+                    Id = Guid.Parse("4b7f2c9e-6a15-4d8b-b3c1-9e2a7f5d8c73"),
+                    ImageUrl = "https://www.sportvision.bg/files/thumbs/files/images/slike_proizvoda/media/IF2/IF2160-010/images/thumbs_600/IF2160-010_1_600_600px.jpg",
+                    Order = 21,
+                    ProductId = new Guid("0c9e7a1d-3b5f-4a82-b6c1-2d7f8e3a9b73")
+                } //End of Nike Sport Essentials Jordan
             };
             return productImages;
         }

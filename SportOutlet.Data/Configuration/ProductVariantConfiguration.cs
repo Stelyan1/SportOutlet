@@ -109,8 +109,43 @@ namespace SportOutlet.Data.Configuration
                     Size = "M",
                     Stock = 20,
                     ProductId = new Guid("1e9b3c7d-4a2f-4d86-b5c1-8a7e2d6f9c54")
-                } //Done
+                }, //Done
 
+
+                //Under Armour Matching Shorts
+                new ProductVariant()
+                {
+                    Id = Guid.Parse("1d7a9c3e-5b24-4f6a-8c1d-2e9f7b3a6c85"),
+                    Size = "L",
+                    Stock = 20,
+                    ProductId = new Guid("f4a8c2d1-9b37-4e6f-a5c2-8d1e7b3f9a62")
+                },
+
+                new ProductVariant()
+                {
+                    Id = Guid.Parse("8b2f6d1c-9a73-4e5a-b4c2-7d1e3f9a6c08\r\n"),
+                    Size = "XL",
+                    Stock = 20,
+                    ProductId = new Guid("f4a8c2d1-9b37-4e6f-a5c2-8d1e7b3f9a62")
+                }, //Done
+
+
+                //Nike Sport Essentials Jordan
+                new ProductVariant()
+                {
+                    Id = Guid.Parse("5e3c1a7d-2f94-4b6a-9d1c-8a2e7f3b6c19"),
+                    Size = "L",
+                    Stock = 20,
+                    ProductId = new Guid("0c9e7a1d-3b5f-4a82-b6c1-2d7f8e3a9b73")
+                },
+
+                new ProductVariant()
+                {
+                    Id = Guid.Parse("a2f9b6c3-4d71-4e8a-8c5d-3e7a1f2b9c60"),
+                    Size = "XL",
+                    Stock = 20,
+                    ProductId = new Guid("0c9e7a1d-3b5f-4a82-b6c1-2d7f8e3a9b73")
+                } //Done
             };
             return productVariants;
         }
