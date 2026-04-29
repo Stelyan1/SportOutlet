@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SportOutlet.Data;
 
@@ -11,9 +12,11 @@ using SportOutlet.Data;
 namespace SportOutlet.Data.Migrations
 {
     [DbContext(typeof(SportOutletDbContext))]
-    partial class SportOutletDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260429161445_Added Shop Entities")]
+    partial class AddedShopEntities
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

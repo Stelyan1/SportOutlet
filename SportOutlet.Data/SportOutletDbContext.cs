@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SportOutlet.Data.Models;
+using SportOutlet.Data.Models.ShopEntities;
 using System.Reflection;
 
 namespace SportOutlet.Data
@@ -19,6 +20,10 @@ namespace SportOutlet.Data
         public virtual DbSet<ProductImage> ProductImages { get; set; } = null!;
         public virtual DbSet<ProductSpecification> ProductSpecifications { get; set; } = null!;
         public virtual DbSet<CategoryImage> CategoryImages { get; set; } = null!;
+        public virtual DbSet<Cart> Carts { get; set; } = null!;
+        public virtual DbSet<CartItem> CartItems { get; set; } = null!;
+        public virtual DbSet<Order> Orders { get; set; } = null!;
+        public virtual DbSet<OrderItem> OrderItems { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
